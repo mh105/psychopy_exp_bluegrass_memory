@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.5),
-    on Thu Jun 27 23:10:49 2024
+    on Thu Jun 27 23:19:57 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -2878,7 +2878,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # --- Prepare to start Routine "block_setup" ---
         continueRoutine = True
         # update component parameters for each repeat
-        thisExp.addData('block_setup.started', globalClock.getTime(format='float'))
         # Run 'Begin Routine' code from setup_block
         # Set up the lists for a block
         image_fn_list_this_block = image_fn_list_blocks[blocks.thisRepN]
@@ -2938,7 +2937,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         for thisComponent in block_setupComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        thisExp.addData('block_setup.stopped', globalClock.getTime(format='float'))
         # the Routine "block_setup" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
@@ -3585,7 +3583,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # --- Prepare to start Routine "block_cleanup" ---
         continueRoutine = True
         # update component parameters for each repeat
-        thisExp.addData('block_cleanup.started', globalClock.getTime(format='float'))
         # Run 'Begin Routine' code from cleanup_block
         # End of block
         dev.activate_line(bitmask=block_end_code)
@@ -3645,7 +3642,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         for thisComponent in block_cleanupComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        thisExp.addData('block_cleanup.stopped', globalClock.getTime(format='float'))
         # the Routine "block_cleanup" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
@@ -3680,7 +3676,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # --- Prepare to start Routine "instruct_rest" ---
             continueRoutine = True
             # update component parameters for each repeat
-            thisExp.addData('instruct_rest.started', globalClock.getTime(format='float'))
             # create starting attributes for key_rest
             key_rest.keys = []
             key_rest.rt = []
@@ -3778,7 +3773,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             for thisComponent in instruct_restComponents:
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
-            thisExp.addData('instruct_rest.stopped', globalClock.getTime(format='float'))
             # the Routine "instruct_rest" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             
@@ -4012,7 +4006,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # --- Prepare to start Routine "instruct_continue" ---
             continueRoutine = True
             # update component parameters for each repeat
-            thisExp.addData('instruct_continue.started', globalClock.getTime(format='float'))
             # create starting attributes for key_continue
             key_continue.keys = []
             key_continue.rt = []
@@ -4110,7 +4103,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             for thisComponent in instruct_continueComponents:
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
-            thisExp.addData('instruct_continue.stopped', globalClock.getTime(format='float'))
             # the Routine "instruct_continue" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
         # completed whether_rest repeats of 'rest_loop'
