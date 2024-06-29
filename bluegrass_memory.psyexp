@@ -1481,7 +1481,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="n" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# End of block&amp;#10;dev.activate_line(bitmask=block_end_code)&amp;#10;eyetracker.sendMessage(block_end_code)&amp;#10;core.wait(0.5)  # wait 500ms before next set of triggers&amp;#10;&amp;#10;if blocks.thisRepN == n_blocks:  # last block of trials&amp;#10;    whether_rest = 0  # skip the rest_loop&amp;#10;else:&amp;#10;    whether_rest = 1  # enter the rest_loop&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# End of block&amp;#10;dev.activate_line(bitmask=block_end_code)&amp;#10;eyetracker.sendMessage(block_end_code)&amp;#10;# no need to wait 500ms as we will calibrate again or we have thank you routine&amp;#10;&amp;#10;if blocks.thisRepN == n_blocks:  # last block of trials&amp;#10;    whether_rest = 0  # skip the rest_loop&amp;#10;else:&amp;#10;    whether_rest = 1  # enter the rest_loop&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
