@@ -906,7 +906,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="# Set up the content for a practice trial&amp;#10;image_fn = image_fn_practice_list[practice_trials.thisRepN]&amp;#10;imageType = imageType_practice_list[practice_trials.thisRepN]&amp;#10;correct_resps = ['a' if itype == 1 else 'l' for itype in imageType]&amp;#10;&amp;#10;# Skip this routine if first time doing practice&amp;#10;if practice_loop.thisRepN == 0:&amp;#10;    continueRoutine = False&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
-        <Param val="Both" valType="str" updates="None" name="Code Type"/>
+        <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
