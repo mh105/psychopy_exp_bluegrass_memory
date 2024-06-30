@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.5),
-    on Thu Jun 27 23:19:57 2024
+    on Sun Jun 30 08:14:38 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -95,7 +95,7 @@ or run the experiment with `--pilot` as an argument. To change what pilot
 PILOTING = core.setPilotModeFromArgs()
 # start off with values from experiment settings
 _fullScr = True
-_winSize = [2560, 1440]
+_winSize = [1728, 1117]
 _loggingLevel = logging.getLevel('warning')
 # if in pilot mode, apply overrides according to preferences
 if PILOTING:
@@ -1639,11 +1639,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     key_practice.keys = []
     key_practice.rt = []
     _key_practice_allKeys = []
-    # Run 'Begin Routine' code from trigger_practice_block
-    # Beginning of practice block
-    dev.activate_line(bitmask=block_start_code)
-    eyetracker.sendMessage(block_start_code)
-    
     # keep track of which components have finished
     instruct_practiceComponents = [text_practice, key_practice]
     for thisComponent in instruct_practiceComponents:
@@ -1777,6 +1772,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         key_practice_repeat.rt = []
         _key_practice_repeat_allKeys = []
         # Run 'Begin Routine' code from skip_routine_check
+        # Start a practice block
+        dev.activate_line(bitmask=block_start_code)
+        eyetracker.sendMessage(block_start_code)
+        core.wait(0.5)  # wait 500ms before trial triggers
+        
         # Skip this routine if first time doing practice
         if practice_loop.thisRepN == 0:
             continueRoutine = False
@@ -2635,6 +2635,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # End of practice block
         dev.activate_line(bitmask=block_end_code)
         eyetracker.sendMessage(block_end_code)
+        # no need to wait 500ms as this routine waits for experimenter key press
         
         # keep track of which components have finished
         practice_checkpointComponents = [text_checkpoint, key_checkpoint]
@@ -2732,11 +2733,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # Run 'End Routine' code from code_checkpoint
         if key_checkpoint.keys == 'o':  # proceed to main experiment
             practice_loop.finished = True
-        else:
-            # Start another practice block
-            dev.activate_line(bitmask=block_start_code)
-            eyetracker.sendMessage(block_start_code)
-            core.wait(0.5)  # wait 500ms
         
         # the Routine "practice_checkpoint" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
@@ -2886,7 +2882,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # Start a block of trials
         dev.activate_line(bitmask=block_start_code)
         eyetracker.sendMessage(block_start_code)
-        core.wait(0.5)  # wait 500ms
+        core.wait(0.5)  # wait 500ms before trial triggers
         
         # keep track of which components have finished
         block_setupComponents = []
@@ -3587,6 +3583,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # End of block
         dev.activate_line(bitmask=block_end_code)
         eyetracker.sendMessage(block_end_code)
+        # no need to wait 500ms as we will calibrate again or we have thank you routine
         
         if blocks.thisRepN == n_blocks:  # last block of trials
             whether_rest = 0  # skip the rest_loop
