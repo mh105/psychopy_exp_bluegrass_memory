@@ -1,7 +1,7 @@
 # Bluegrass working memory task
 
 ## Description
-This is a modified delayed match-to-sample task used for over a decade by Dr. Yang Jiang's group at University of Kentucky. The behavioral paradigm has a simple design where in each sequence subjects are asked to make a match/no-match two-alternative forced choice response against a target. Visual stimuli have been employed in previous studies, and the focus is on memory-related frontal potentials that have been found to be sensitive to aging and Alzheimer's disease pathology (all of MCI, longitudinal cognitive decline, as well as AD diagnosis).
+This is a modified delayed match-to-sample task used for over a decade by Dr. Yang Jiang's group at University of Kentucky. The behavioral paradigm has a simple design where in each sequence subjects are asked to make a match/no-match two-alternative forced choice response against a target. Visual stimuli have been employed in previous studies, and the focus is on memory-related frontal potentials that have been found to be sensitive to aging and Alzheimer's disease (AD) pathology, including mild cognitive impairment (MCI), longitudinal cognitive decline, as well as AD diagnosis.
 
 For a detailed description of this line of research, see the very helpful "Human Studies using Bluegrass Memory Paradigm" PDF file written by Jiang's group in the current repo. Our design here follows the 2017 study that differentiated aMCI from normal cognitively normal older adults:
 
