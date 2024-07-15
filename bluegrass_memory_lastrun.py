@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.5),
-    on Sun Jun 30 16:37:15 2024
+    on Mon Jul 15 08:32:19 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -631,7 +631,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     image_schematic = visual.ImageStim(
         win=win,
         name='image_schematic', 
-        image='resource/blockSchematic.png', mask=None, anchor='center',
+        image='resource/taskSchematic.png', mask=None, anchor='center',
         ori=0.0, pos=(0, 0), size=None,
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
