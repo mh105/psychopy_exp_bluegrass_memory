@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.5),
-    on Mon Jul 15 08:32:19 2024
+    on Mon Jul 15 15:33:12 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -1913,10 +1913,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             image_fn = image_fn_practice_list[practice_trials.thisRepN]
             imageType = imageType_practice_list[practice_trials.thisRepN]
             correct_resps = ['a' if itype == 1 else 'l' for itype in imageType]
-            
-            # Skip this routine if first time doing practice
-            if practice_loop.thisRepN == 0:
-                continueRoutine = False
             
             # keep track of which components have finished
             practice_setupComponents = []
