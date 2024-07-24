@@ -1,7 +1,8 @@
 # Bluegrass working memory task
-Last edit: 07/15/2024
+Last edit: 07/23/2024
 
 ## Edit history
+- 07/23/2024 by Alex He - fixed three minor bugs around the maximal number of image file loaded, thisRepN to skip extra calibration, and setting inner most loop isTrial=True
 - 07/15/2024 by Alex He - updated task schematic diagram png file
 - 06/30/2024 by Alex He - created finalized first draft version
 
