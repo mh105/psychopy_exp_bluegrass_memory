@@ -1,7 +1,8 @@
 # Bluegrass working memory task
-Last edit: 07/26/2024
+Last edit: 08/02/2024
 
 ## Edit history
+- 08/02/2024 by Alex He - upgraded to support PsychoPy 2024.2.1
 - 07/26/2024 by Alex He - upgraded to support PsychoPy 2024.2.0
 - 07/23/2024 by Emily McElroy - fixed three minor bugs around the maximal number of image file loaded, thisRepN to skip extra calibration, and setting inner most loop isTrial=True
 - 07/15/2024 by Alex He - updated task schematic diagram png file
