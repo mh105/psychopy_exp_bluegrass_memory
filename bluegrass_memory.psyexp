@@ -1061,7 +1061,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="Great job! We will now start the task.&amp;#10;&amp;#10;Remember: if an image matches the target, press the 'A' key, and if it does not match the target, press the 'L' key.&amp;#10;&amp;#10;Please respond as quickly and accurately as possible after you see each image.&amp;#10;&amp;#10;&amp;#10;Press the spacebar to begin" valType="str" updates="constant" name="text"/>
+        <Param val="Great job! We will now start the task.&amp;#10;&amp;#10;Remember: if an image matches the target, press the 'A' key, and if it does not match the target, press the 'L' key.&amp;#10;&amp;#10;Please respond as quickly and accurately as possible after you see each image. You will no longer receive feedback on your responses.&amp;#10;&amp;#10;&amp;#10;Press the spacebar to begin" valType="str" updates="constant" name="text"/>
         <Param val="norm" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="1.8" valType="num" updates="constant" name="wrapWidth"/>

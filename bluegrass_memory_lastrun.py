@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.1a1),
-    on Mon Aug 12 22:17:12 2024
+    on Tue Aug 13 15:41:45 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -756,7 +756,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_begin" ---
     text_begin = visual.TextStim(win=win, name='text_begin',
-        text="Great job! We will now start the task.\n\nRemember: if an image matches the target, press the 'A' key, and if it does not match the target, press the 'L' key.\n\nPlease respond as quickly and accurately as possible after you see each image.\n\n\nPress the spacebar to begin",
+        text="Great job! We will now start the task.\n\nRemember: if an image matches the target, press the 'A' key, and if it does not match the target, press the 'L' key.\n\nPlease respond as quickly and accurately as possible after you see each image. You will no longer receive feedback on your responses.\n\n\nPress the spacebar to begin",
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 

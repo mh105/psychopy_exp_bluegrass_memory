@@ -1,7 +1,8 @@
 # Bluegrass working memory task
-Last edit: 08/12/2024
+Last edit: 08/13/2024
 
 ## Edit history
+- 08/13/2024 by Alex He - added reminder that real trials do not have feedback on responses
 - 08/12/2024 by Alex He - revert to python 3.8 as pylink connection to EyeLink does not work correctly on 3.10
 - 08/04/2024 by Alex He - generated experiment scripts on python 3.10
 - 08/02/2024 by Alex He - upgraded to support PsychoPy 2024.2.1
