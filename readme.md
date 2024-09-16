@@ -1,7 +1,8 @@
 # Bluegrass working memory task
-Last edit: 09/05/2024
+Last edit: 09/16/2024
 
 ## Edit history
+- 09/16/2024 by Alex He - fixed 6 stimuli picture with non-white (255) background
 - 09/05/2024 by Alex He - removed git tracking of _lastrun.py file and added retries to pyxid2.get_xid_devices() with timeout
 - 08/17/2024 by Alex He - added more print messages during c-pod connection
 - 08/13/2024 by Alex He - added reminder that real trials do not have feedback on responses
