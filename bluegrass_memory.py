@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.1a1),
-    on Tue Sep 17 17:06:14 2024
+    on Wed Sep 18 22:00:33 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -645,7 +645,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # Run 'Begin Experiment' code from condition_setup
     # Set up condition arrays for the experiment
     rng = np.random.default_rng()
-    image_filenames = rng.permutation(['resource/' + str(x).zfill(3) + '.bmp' for x in range(1, 125)])
+    session_int = int(expInfo['session'])
+    idx_start = (session_int - 1) * 124 + 1
+    idx_end = session_int * 124 + 1
+    image_filenames = rng.permutation(['resource/' + str(x).zfill(3) + '.bmp' for x in range(idx_start, idx_end)])
     n_objects_per_trial = 2  # each trial alternates between two object images
     n_images_per_trial = 5  # each trial will present 5 test images of the two objects
     n_match_options = [2, 3]  # target image can appear 2 or 3 times per trial
@@ -678,6 +681,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # split the lists into blocks
     image_fn_list_blocks = [image_fn_list[i * n_trials_per_block:(i + 1) * n_trials_per_block] for i in range(n_blocks)]
     imageType_list_blocks = [imageType_list[i * n_trials_per_block:(i + 1) * n_trials_per_block] for i in range(n_blocks)]
+    
+    assert len(image_filenames) == 124, "Incorrect number of picture stimuli loaded for this session."
+    assert len(image_filenames) / n_objects_per_trial == (n_trials_practice + n_trials), "Incorrect number of trials for this session."
     
     
     # --- Initialize components for Routine "instruct" ---
@@ -2277,6 +2283,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # store stop times for practice_setup
             practice_setup.tStop = globalClock.getTime(format='float')
             practice_setup.tStopRefresh = tThisFlipGlobal
+            # Run 'End Routine' code from setup_practice_trial
+            thisExp.addData('target_image', image_fn[1])  # adding Target Image Name to .csv file
+            thisExp.addData('distractor_image', image_fn[0])  # adding Distractor Image Name to .csv file
+            
             # the Routine "practice_setup" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             
@@ -2614,7 +2624,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 # update component parameters for each repeat
                 # Run 'Begin Routine' code from setup_test_image
                 # Obtain the current image filename
-                image_fn_test = image_fn[imageType[thisImageNumber]]
+                thisImageType = imageType[thisImageNumber]
+                image_test_fn = image_fn[thisImageType]
+                thisCorrectResp = correct_resps[thisImageNumber]
                 
                 # Set the inter-stimulus interval (ISI) of fixation
                 if thisImageNumber < (n_images_per_trial - 1):
@@ -2625,7 +2637,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     # but still collect behavioral responses for another 1.5s
                     isi = 1.5
                 
-                image_test.setImage(image_fn_test)
+                image_test.setImage(image_test_fn)
                 # Run 'Begin Routine' code from adjust_image_test_size
                 scale_to_size(image_test, box_size)
                 
@@ -2857,6 +2869,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 trial_image.tStopRefresh = tThisFlipGlobal
                 thisExp.addData('trial_image.stopped', trial_image.tStop)
                 # Run 'End Routine' code from setup_test_image
+                thisExp.addData('trial_type', thisImageType)  # adding Trial Type to .csv file (1 = match, 0 = non-match)
+                thisExp.addData('image_test_fn', image_test_fn)  # adding Test Image Name to .csv file
+                thisExp.addData('correct_response', thisCorrectResp)  # adding Correct Response to .csv file
+                
                 thisImageNumber += 1  # accrue the image number by 1
                 
                 # check responses
@@ -2884,7 +2900,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     feedback_text_color = [-1, -1, -1]
                 
                 # roll thisImageNumber back 1 since it got += 1 in the last routine
-                elif key_resp.keys[0] == correct_resps[thisImageNumber - 1]:  # check the first key pressed
+                elif key_resp.keys[0] == thisCorrectResp:  # check the first key pressed
                     feedback_text = 'Correct'
                     feedback_text_color = [-1, 1, -1]
                 
@@ -3465,6 +3481,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # Set up the content for a trial
             image_fn = image_fn_list_this_block[trials.thisRepN]
             imageType = imageType_list_this_block[trials.thisRepN]
+            correct_resps = ['a' if itype == 1 else 'l' for itype in imageType]
             
             # store start times for trial_setup
             trial_setup.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
@@ -3538,6 +3555,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             trial_setup.tStop = globalClock.getTime(format='float')
             trial_setup.tStopRefresh = tThisFlipGlobal
             thisExp.addData('trial_setup.stopped', trial_setup.tStop)
+            # Run 'End Routine' code from setup_trial
+            thisExp.addData('target_image', image_fn[1])  # adding Target Image Name to .csv file
+            thisExp.addData('distractor_image', image_fn[0])  # adding Distractor Image Name to .csv file
+            
             # the Routine "trial_setup" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             
@@ -3869,7 +3890,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 # update component parameters for each repeat
                 # Run 'Begin Routine' code from setup_test_image
                 # Obtain the current image filename
-                image_fn_test = image_fn[imageType[thisImageNumber]]
+                thisImageType = imageType[thisImageNumber]
+                image_test_fn = image_fn[thisImageType]
+                thisCorrectResp = correct_resps[thisImageNumber]
                 
                 # Set the inter-stimulus interval (ISI) of fixation
                 if thisImageNumber < (n_images_per_trial - 1):
@@ -3880,7 +3903,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     # but still collect behavioral responses for another 1.5s
                     isi = 1.5
                 
-                image_test.setImage(image_fn_test)
+                image_test.setImage(image_test_fn)
                 # Run 'Begin Routine' code from adjust_image_test_size
                 scale_to_size(image_test, box_size)
                 
@@ -4112,6 +4135,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 trial_image.tStopRefresh = tThisFlipGlobal
                 thisExp.addData('trial_image.stopped', trial_image.tStop)
                 # Run 'End Routine' code from setup_test_image
+                thisExp.addData('trial_type', thisImageType)  # adding Trial Type to .csv file (1 = match, 0 = non-match)
+                thisExp.addData('image_test_fn', image_test_fn)  # adding Test Image Name to .csv file
+                thisExp.addData('correct_response', thisCorrectResp)  # adding Correct Response to .csv file
+                
                 thisImageNumber += 1  # accrue the image number by 1
                 
                 # check responses

@@ -306,14 +306,14 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# Obtain the current image filename&amp;#10;image_fn_test = image_fn[imageType[thisImageNumber]]&amp;#10;&amp;#10;# Set the inter-stimulus interval (ISI) of fixation&amp;#10;if thisImageNumber &lt; (n_images_per_trial - 1):&amp;#10;    isi = rng.uniform(1.1, 1.4)&amp;#10;else:&amp;#10;    # skip showing a fixation cross after the last image in sequence&amp;#10;    text_fixation.status = FINISHED&amp;#10;    # but still collect behavioral responses for another 1.5s&amp;#10;    isi = 1.5&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# Obtain the current image filename&amp;#10;thisImageType = imageType[thisImageNumber]&amp;#10;image_test_fn = image_fn[thisImageType]&amp;#10;thisCorrectResp = correct_resps[thisImageNumber]&amp;#10;&amp;#10;# Set the inter-stimulus interval (ISI) of fixation&amp;#10;if thisImageNumber &lt; (n_images_per_trial - 1):&amp;#10;    isi = rng.uniform(1.1, 1.4)&amp;#10;else:&amp;#10;    # skip showing a fixation cross after the last image in sequence&amp;#10;    text_fixation.status = FINISHED&amp;#10;    # but still collect behavioral responses for another 1.5s&amp;#10;    isi = 1.5&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="thisImageNumber += 1  # accrue the image number by 1&amp;#10;" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="thisExp.addData('trial_type', thisImageType)  # adding Trial Type to .csv file (1 = match, 0 = non-match)&amp;#10;thisExp.addData('image_test_fn', image_test_fn)  # adding Test Image Name to .csv file&amp;#10;thisExp.addData('correct_response', thisCorrectResp)  # adding Correct Response to .csv file&amp;#10;&amp;#10;thisImageNumber += 1  # accrue the image number by 1&amp;#10;" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="setup_test_image" valType="code" updates="None" name="name"/>
       </CodeComponent>
@@ -356,7 +356,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="$image_fn_test" valType="file" updates="set every repeat" name="image"/>
+        <Param val="$image_test_fn" valType="file" updates="set every repeat" name="image"/>
         <Param val="nearest" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="image_test" valType="code" updates="None" name="name"/>
@@ -591,7 +591,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="if not key_resp.keys:&amp;#10;    feedback_text = 'Respond Faster'&amp;#10;    feedback_text_color = [-1, -1, -1]&amp;#10;&amp;#10;# roll thisImageNumber back 1 since it got += 1 in the last routine&amp;#10;elif key_resp.keys[0] == correct_resps[thisImageNumber - 1]:  # check the first key pressed&amp;#10;    feedback_text = 'Correct'&amp;#10;    feedback_text_color = [-1, 1, -1]&amp;#10;&amp;#10;else:&amp;#10;    feedback_text = 'Incorrect'&amp;#10;    feedback_text_color = [1, -1, -1]&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="if not key_resp.keys:&amp;#10;    feedback_text = 'Respond Faster'&amp;#10;    feedback_text_color = [-1, -1, -1]&amp;#10;&amp;#10;# roll thisImageNumber back 1 since it got += 1 in the last routine&amp;#10;elif key_resp.keys[0] == thisCorrectResp:  # check the first key pressed&amp;#10;    feedback_text = 'Correct'&amp;#10;    feedback_text_color = [-1, 1, -1]&amp;#10;&amp;#10;else:&amp;#10;    feedback_text = 'Incorrect'&amp;#10;    feedback_text_color = [1, -1, -1]&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -890,7 +890,7 @@
       <CodeComponent name="condition_setup" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="# Set up condition arrays for the experiment&amp;#10;rng = np.random.default_rng()&amp;#10;image_filenames = rng.permutation(['resource/' + str(x).zfill(3) + '.bmp' for x in range(1, 125)])&amp;#10;n_objects_per_trial = 2  # each trial alternates between two object images&amp;#10;n_images_per_trial = 5  # each trial will present 5 test images of the two objects&amp;#10;n_match_options = [2, 3]  # target image can appear 2 or 3 times per trial&amp;#10;&amp;#10;# Practice trials&amp;#10;n_trials_practice = 2&amp;#10;n_objects_practice = n_trials_practice * n_objects_per_trial  # 4 objects during practice&amp;#10;image_fn_practice = image_filenames[:n_objects_practice]&amp;#10;image_fn_practice_list = [image_fn_practice[i * n_objects_per_trial:(i + 1) * n_objects_per_trial] for i in range(n_trials_practice)]&amp;#10;# decide the type of each image in the sequence of each trial&amp;#10;imageType_practice_list = []&amp;#10;for _ in range(n_trials_practice):&amp;#10;    n_match = rng.choice(n_match_options)&amp;#10;    n_nonmatch = n_images_per_trial - n_match&amp;#10;    imageType_practice_list.append(rng.permutation([1] * n_match + [0] * n_nonmatch))  # 1 = match, 0 = non-match&amp;#10;&amp;#10;# Main trials&amp;#10;n_blocks = 2&amp;#10;n_trials_per_block = 30  # a total of 60 trials&amp;#10;n_trials = n_blocks * n_trials_per_block&amp;#10;n_objects = n_trials * n_objects_per_trial  # 120 objects during main experiment&amp;#10;image_fn = image_filenames[n_objects_practice:n_objects_practice + n_objects]&amp;#10;image_fn_list = [image_fn[i * n_objects_per_trial:(i + 1) * n_objects_per_trial] for i in range(n_trials)]&amp;#10;# decide the type of each image in the sequence of each trial&amp;#10;imageType_list = []&amp;#10;for _ in range(n_trials):&amp;#10;    n_match = rng.choice(n_match_options)&amp;#10;    n_nonmatch = n_images_per_trial - n_match&amp;#10;    imageType_list.append(rng.permutation([1] * n_match + [0] * n_nonmatch))  # 1 = match, 0 = non-match&amp;#10;# split the lists into blocks&amp;#10;image_fn_list_blocks = [image_fn_list[i * n_trials_per_block:(i + 1) * n_trials_per_block] for i in range(n_blocks)]&amp;#10;imageType_list_blocks = [imageType_list[i * n_trials_per_block:(i + 1) * n_trials_per_block] for i in range(n_blocks)]&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="# Set up condition arrays for the experiment&amp;#10;rng = np.random.default_rng()&amp;#10;session_int = int(expInfo['session'])&amp;#10;idx_start = (session_int - 1) * 124 + 1&amp;#10;idx_end = session_int * 124 + 1&amp;#10;image_filenames = rng.permutation(['resource/' + str(x).zfill(3) + '.bmp' for x in range(idx_start, idx_end)])&amp;#10;n_objects_per_trial = 2  # each trial alternates between two object images&amp;#10;n_images_per_trial = 5  # each trial will present 5 test images of the two objects&amp;#10;n_match_options = [2, 3]  # target image can appear 2 or 3 times per trial&amp;#10;&amp;#10;# Practice trials&amp;#10;n_trials_practice = 2&amp;#10;n_objects_practice = n_trials_practice * n_objects_per_trial  # 4 objects during practice&amp;#10;image_fn_practice = image_filenames[:n_objects_practice]&amp;#10;image_fn_practice_list = [image_fn_practice[i * n_objects_per_trial:(i + 1) * n_objects_per_trial] for i in range(n_trials_practice)]&amp;#10;# decide the type of each image in the sequence of each trial&amp;#10;imageType_practice_list = []&amp;#10;for _ in range(n_trials_practice):&amp;#10;    n_match = rng.choice(n_match_options)&amp;#10;    n_nonmatch = n_images_per_trial - n_match&amp;#10;    imageType_practice_list.append(rng.permutation([1] * n_match + [0] * n_nonmatch))  # 1 = match, 0 = non-match&amp;#10;&amp;#10;# Main trials&amp;#10;n_blocks = 2&amp;#10;n_trials_per_block = 30  # a total of 60 trials&amp;#10;n_trials = n_blocks * n_trials_per_block&amp;#10;n_objects = n_trials * n_objects_per_trial  # 120 objects during main experiment&amp;#10;image_fn = image_filenames[n_objects_practice:n_objects_practice + n_objects]&amp;#10;image_fn_list = [image_fn[i * n_objects_per_trial:(i + 1) * n_objects_per_trial] for i in range(n_trials)]&amp;#10;# decide the type of each image in the sequence of each trial&amp;#10;imageType_list = []&amp;#10;for _ in range(n_trials):&amp;#10;    n_match = rng.choice(n_match_options)&amp;#10;    n_nonmatch = n_images_per_trial - n_match&amp;#10;    imageType_list.append(rng.permutation([1] * n_match + [0] * n_nonmatch))  # 1 = match, 0 = non-match&amp;#10;# split the lists into blocks&amp;#10;image_fn_list_blocks = [image_fn_list[i * n_trials_per_block:(i + 1) * n_trials_per_block] for i in range(n_blocks)]&amp;#10;imageType_list_blocks = [imageType_list[i * n_trials_per_block:(i + 1) * n_trials_per_block] for i in range(n_blocks)]&amp;#10;&amp;#10;assert len(image_filenames) == 124, &quot;Incorrect number of picture stimuli loaded for this session.&quot;&amp;#10;assert len(image_filenames) / n_objects_per_trial == (n_trials_practice + n_trials), &quot;Incorrect number of trials for this session.&quot;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
@@ -935,7 +935,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="thisExp.addData('target_image', image_fn[1])  # adding Target Image Name to .csv file&amp;#10;thisExp.addData('distractor_image', image_fn[0])  # adding Distractor Image Name to .csv file&amp;#10;" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="setup_practice_trial" valType="code" updates="None" name="name"/>
       </CodeComponent>
@@ -1110,14 +1110,14 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# Set up the content for a trial&amp;#10;image_fn = image_fn_list_this_block[trials.thisRepN]&amp;#10;imageType = imageType_list_this_block[trials.thisRepN]&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# Set up the content for a trial&amp;#10;image_fn = image_fn_list_this_block[trials.thisRepN]&amp;#10;imageType = imageType_list_this_block[trials.thisRepN]&amp;#10;correct_resps = ['a' if itype == 1 else 'l' for itype in imageType]&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="thisExp.addData('target_image', image_fn[1])  # adding Target Image Name to .csv file&amp;#10;thisExp.addData('distractor_image', image_fn[0])  # adding Distractor Image Name to .csv file&amp;#10;" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="setup_trial" valType="code" updates="None" name="name"/>
       </CodeComponent>
