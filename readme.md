@@ -1,7 +1,8 @@
 # Bluegrass working memory task
-Last edit: 09/18/2024
+Last edit: 09/23/2024
 
 ## Edit history
+- 09/23/2024 by Alex He - upgraded to run on PsychoPy 2024.2.2
 - 09/18/2024 by Alex He - improved trial logging and enabled two repeated test sessions
 - 09/16/2024 by Alex He - fixed 6 stimuli picture with non-white (255) background
 - 09/05/2024 by Alex He - removed git tracking of _lastrun.py file and added retries to pyxid2.get_xid_devices() with timeout
