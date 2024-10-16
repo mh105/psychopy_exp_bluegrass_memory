@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Mon Oct 14 10:49:40 2024
+    on Wed Oct 16 13:55:38 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -4147,10 +4147,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if thisSequence != None:
                 for paramName in thisSequence:
                     globals()[paramName] = thisSequence[paramName]
+            if thisSession is not None:
+                # if running in a Session with a Liaison client, send data up to now
+                thisSession.sendExperimentData()
             
             for thisSequence in sequence:
                 currentLoop = sequence
                 thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
+                if thisSession is not None:
+                    # if running in a Session with a Liaison client, send data up to now
+                    thisSession.sendExperimentData()
                 # abbreviate parameter names if possible (e.g. rgb = thisSequence.rgb)
                 if thisSequence != None:
                     for paramName in thisSequence:
@@ -4427,8 +4433,22 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     sequence.addData('key_resp.duration', key_resp.duration)
                 # the Routine "trial_image" was not non-slip safe, so reset the non-slip timer
                 routineTimer.reset()
+                thisExp.nextEntry()
+                
             # completed n_images_per_trial repeats of 'sequence'
             
+            if thisSession is not None:
+                # if running in a Session with a Liaison client, send data up to now
+                thisSession.sendExperimentData()
+            # get names of stimulus parameters
+            if sequence.trialList in ([], [None], None):
+                params = []
+            else:
+                params = sequence.trialList[0].keys()
+            # save data for this loop
+            sequence.saveAsText(filename + 'sequence.csv', delim=',',
+                stimOut=params,
+                dataOut=['n','all_mean','all_std', 'all_raw'])
             thisExp.nextEntry()
             
         # completed n_trials_per_block repeats of 'trials'
