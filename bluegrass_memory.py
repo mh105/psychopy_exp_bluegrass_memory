@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Wed Oct 16 13:55:38 2024
+    on Thu Oct 24 15:54:16 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -87,8 +87,7 @@ if devices:
     # Start EEG recording
     print("Sending trigger code 126 to start EEG recording...")
     dev.activate_line(bitmask=126)  # trigger 126 will start EEG
-    print("Waiting 10 seconds for the EEG recording to start...")
-    print("")
+    print("Waiting 10 seconds for the EEG recording to start...\n")
     core.wait(10)  # wait 10s for the EEG system to start recording
 
     # Marching lights test
@@ -98,7 +97,7 @@ if devices:
         dev.activate_line(lines=line)
         core.wait(0.5)  # wait 500ms between two consecutive triggers
     dev.con.set_digio_lines_to_mask(0)  # XidDevice.clear_all_lines()
-    print("EEG system is now ready for the experiment to start.")
+    print("EEG system is now ready for the experiment to start.\n")
 
 else:
     # Dummy XidDevice for code components to run without C-POD connected
@@ -110,7 +109,7 @@ else:
 
 
     print("WARNING: No C-POD connected for this session! "
-          "You must start/stop EEG recording manually!")
+          "You must start/stop EEG recording manually!\n")
     dev = dummyXidDevice()
 
 # --- Setup global variables (available in all functions) ---
@@ -672,6 +671,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     task_start_code = 100
     # special code 103 (task ID for bluegrass memory task)
     task_ID_code = 103
+    print("Starting experiment: < Bluegrass Memory Task >. Task ID:", task_ID_code)
     
     ##GENERAL TRIGGER VALUES##
     # special code 122 (block start)
@@ -689,10 +689,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     core.wait(0.5)  # wait 500ms between two consecutive triggers
     dev.activate_line(bitmask=task_ID_code)  # special code for task ID
     
-    etRecord = hardware.eyetracker.EyetrackerControl(
-        tracker=eyetracker,
-        actionType='Start Only'
-    )
     # Run 'Begin Experiment' code from condition_setup
     # Set up condition arrays for the experiment
     rng = np.random.default_rng()
@@ -736,6 +732,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     assert len(image_filenames) == 124, "Incorrect number of picture stimuli loaded for this session."
     assert len(image_filenames) / n_objects_per_trial == (n_trials_practice + n_trials), "Incorrect number of trials for this session."
     
+    etRecord = hardware.eyetracker.EyetrackerControl(
+        tracker=eyetracker,
+        actionType='Start Only'
+    )
     
     # --- Initialize components for Routine "instruct" ---
     text_instruct = visual.TextStim(win=win, name='text_instruct',
