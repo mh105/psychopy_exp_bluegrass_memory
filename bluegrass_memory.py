@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Thu Nov 21 21:34:05 2024
+    on Fri Nov 22 15:25:18 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -139,7 +139,7 @@ or run the experiment with `--pilot` as an argument. To change what pilot
 PILOTING = core.setPilotModeFromArgs()
 # start off with values from experiment settings
 _fullScr = True
-_winSize = [1920, 1080]
+_winSize = [3440, 1440]
 # if in pilot mode, apply overrides according to preferences
 if PILOTING:
     # force windowed mode
@@ -3247,15 +3247,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if thisSession is not None:
                 # if running in a Session with a Liaison client, send data up to now
                 thisSession.sendExperimentData()
-            # get names of stimulus parameters
-            if practice_sequence.trialList in ([], [None], None):
-                params = []
-            else:
-                params = practice_sequence.trialList[0].keys()
-            # save data for this loop
-            practice_sequence.saveAsText(filename + 'practice_sequence.csv', delim=',',
-                stimOut=params,
-                dataOut=['n','all_mean','all_std', 'all_raw'])
             thisExp.nextEntry()
             
         # completed n_trials_practice repeats of 'practice_trials'
@@ -3263,15 +3254,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisSession is not None:
             # if running in a Session with a Liaison client, send data up to now
             thisSession.sendExperimentData()
-        # get names of stimulus parameters
-        if practice_trials.trialList in ([], [None], None):
-            params = []
-        else:
-            params = practice_trials.trialList[0].keys()
-        # save data for this loop
-        practice_trials.saveAsText(filename + 'practice_trials.csv', delim=',',
-            stimOut=params,
-            dataOut=['n','all_mean','all_std', 'all_raw'])
         
         # --- Prepare to start Routine "practice_checkpoint" ---
         # create an object to store info about Routine practice_checkpoint
@@ -4440,15 +4422,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if thisSession is not None:
                 # if running in a Session with a Liaison client, send data up to now
                 thisSession.sendExperimentData()
-            # get names of stimulus parameters
-            if sequence.trialList in ([], [None], None):
-                params = []
-            else:
-                params = sequence.trialList[0].keys()
-            # save data for this loop
-            sequence.saveAsText(filename + 'sequence.csv', delim=',',
-                stimOut=params,
-                dataOut=['n','all_mean','all_std', 'all_raw'])
             thisExp.nextEntry()
             
         # completed n_trials_per_block repeats of 'trials'
@@ -4456,15 +4429,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisSession is not None:
             # if running in a Session with a Liaison client, send data up to now
             thisSession.sendExperimentData()
-        # get names of stimulus parameters
-        if trials.trialList in ([], [None], None):
-            params = []
-        else:
-            params = trials.trialList[0].keys()
-        # save data for this loop
-        trials.saveAsText(filename + 'trials.csv', delim=',',
-            stimOut=params,
-            dataOut=['n','all_mean','all_std', 'all_raw'])
         
         # --- Prepare to start Routine "block_cleanup" ---
         # create an object to store info about Routine block_cleanup
