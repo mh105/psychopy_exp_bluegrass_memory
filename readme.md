@@ -1,7 +1,8 @@
 # Bluegrass working memory task
-Last edit: 10/24/2024
+Last edit: 11/21/2024
 
 ## Edit history
+- 11/21/2024 by Alex He - added voice over instruction to encourage questions on the schematic diagram
 - 10/24/2024 by Alex He - added a print message of task ID at the onset of task
 - 10/16/2024 by Emily McElroy - fixed a bug with sequence loop not treated as a trial loop
 - 10/12/2024 by Alex He - increased logging granularity from warning to debug (maximal level)

@@ -578,7 +578,7 @@
         <Param val="-1" valType="code" updates="None" name="speakerIndex"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="4.0" valType="code" updates="None" name="startVal"/>
+        <Param val="0.8" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="constant" name="stopWithRoutine"/>
@@ -770,7 +770,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="In this task, you will first see a target image shown in a green box. Then, you will see a series of images presented one at a time following the target image.&amp;#10;&amp;#10;For each image in the sequence, you need to decide whether it matches the target or not. If it matches the target, please press the Green key, and if it does not match the target, press the Red key.&amp;#10;&amp;#10;There will be a different target image for each sequence, and the target image at the beginning of a new sequence is marked by the green box.&amp;#10;&amp;#10;&amp;#10;Press any of the white keys to see an overview diagram" valType="str" updates="constant" name="text"/>
+        <Param val="In this task, you will first see a sample image shown in a green box. Then, you will see a series of images presented one at a time following the target sample image.&amp;#10;&amp;#10;For each image in the sequence, you need to decide whether it matches the target or not. If it matches the target, please press the Green key, and if it does not match the target, press the Red key. In between images, please look at the fixation cross at the center of the screen.&amp;#10;&amp;#10;There will be a different target image for each sequence, and the target image at the beginning of a new sequence is marked by the green box.&amp;#10;&amp;#10;&amp;#10;Press any of the white keys to see an overview diagram" valType="str" updates="constant" name="text"/>
         <Param val="norm" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="1.8" valType="num" updates="constant" name="wrapWidth"/>

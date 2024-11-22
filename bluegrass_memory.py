@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Thu Oct 24 15:54:16 2024
+    on Thu Nov 21 21:34:05 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -739,7 +739,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct" ---
     text_instruct = visual.TextStim(win=win, name='text_instruct',
-        text='In this task, you will first see a target image shown in a green box. Then, you will see a series of images presented one at a time following the target image.\n\nFor each image in the sequence, you need to decide whether it matches the target or not. If it matches the target, please press the Green key, and if it does not match the target, press the Red key.\n\nThere will be a different target image for each sequence, and the target image at the beginning of a new sequence is marked by the green box.\n\n\nPress any of the white keys to see an overview diagram',
+        text='In this task, you will first see a sample image shown in a green box. Then, you will see a series of images presented one at a time following the target sample image.\n\nFor each image in the sequence, you need to decide whether it matches the target or not. If it matches the target, please press the Green key, and if it does not match the target, press the Red key. In between images, please look at the fixation cross at the center of the screen.\n\nThere will be a different target image for each sequence, and the target image at the beginning of a new sequence is marked by the green box.\n\n\nPress any of the white keys to see an overview diagram',
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -1980,7 +1980,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *read_schematic* updates
         
         # if read_schematic is starting this frame...
-        if read_schematic.status == NOT_STARTED and tThisFlip >= 4.0-frameTolerance:
+        if read_schematic.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
             # keep track of start time/frame for later
             read_schematic.frameNStart = frameN  # exact frame index
             read_schematic.tStart = t  # local t and not account for scr refresh
