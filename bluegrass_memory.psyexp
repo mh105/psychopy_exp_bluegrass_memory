@@ -115,7 +115,7 @@
         <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="rectangle" valType="str" updates="None" name="shape"/>
-        <Param val="(0.42, 0.42)" valType="list" updates="constant" name="size"/>
+        <Param val="(0.3, 0.3)" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="1.5" valType="code" updates="None" name="startVal"/>
@@ -144,7 +144,7 @@
         <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="rectangle" valType="str" updates="None" name="shape"/>
-        <Param val="(0.4, 0.4)" valType="list" updates="constant" name="size"/>
+        <Param val="(0.28, 0.28)" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="1.5" valType="code" updates="None" name="startVal"/>
@@ -190,7 +190,7 @@
         <Param val="def scale_to_size(image_object, max_size):&amp;#10;    image_object.size *= max_size / max(image_object.size)  # scale to max size&amp;#10;    image_object._requestedSize = None  # reset for next image original size&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="box_size = 0.395&amp;#10;scale_to_size(image_target, box_size)&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="box_size = 0.279&amp;#10;scale_to_size(image_target, box_size)&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -335,7 +335,7 @@
         <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="rectangle" valType="str" updates="None" name="shape"/>
-        <Param val="(0.4, 0.4)" valType="list" updates="constant" name="size"/>
+        <Param val="(0.28, 0.28)" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0" valType="code" updates="None" name="startVal"/>

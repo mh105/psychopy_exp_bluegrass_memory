@@ -1,7 +1,8 @@
 # Bluegrass working memory task
-Last edit: 12/11/2024
+Last edit: 01/06/2025
 
 ## Edit history
+- 01/06/2025 by Alex He - reduced the size of all picture stimuli from 0.4 to 0.28
 - 12/11/2024 by Alex He - fixed the window size to be the correct screen resolution
 - 11/22/2024 by Alex He - removed summary csv saving since no trialList used
 - 11/21/2024 by Alex He - added voice over instruction to encourage questions on the schematic diagram

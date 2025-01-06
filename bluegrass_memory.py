@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Wed Dec 11 20:11:13 2024
+    on Mon Jan  6 13:04:06 2025
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -822,14 +822,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "trial_target" ---
     green_square_part1 = visual.Rect(
         win=win, name='green_square_part1',
-        width=(0.42, 0.42)[0], height=(0.42, 0.42)[1],
+        width=(0.3, 0.3)[0], height=(0.3, 0.3)[1],
         ori=0.0, pos=(0, 0), draggable=False, anchor='center',
         lineWidth=1.0,
         colorSpace='rgb', lineColor=[-1.0000, 0.4824, -0.8353], fillColor=[-1.0000, 0.4824, -0.8353],
         opacity=None, depth=0.0, interpolate=True)
     green_square_part2 = visual.Rect(
         win=win, name='green_square_part2',
-        width=(0.4, 0.4)[0], height=(0.4, 0.4)[1],
+        width=(0.28, 0.28)[0], height=(0.28, 0.28)[1],
         ori=0.0, pos=(0, 0), draggable=False, anchor='center',
         lineWidth=1.0,
         colorSpace='rgb', lineColor='white', fillColor='white',
@@ -859,7 +859,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "trial_image" ---
     white_square = visual.Rect(
         win=win, name='white_square',
-        width=(0.4, 0.4)[0], height=(0.4, 0.4)[1],
+        width=(0.28, 0.28)[0], height=(0.28, 0.28)[1],
         ori=0.0, pos=(0, 0), draggable=False, anchor='center',
         lineWidth=1.0,
         colorSpace='rgb', lineColor=None, fillColor='white',
@@ -933,14 +933,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "trial_target" ---
     green_square_part1 = visual.Rect(
         win=win, name='green_square_part1',
-        width=(0.42, 0.42)[0], height=(0.42, 0.42)[1],
+        width=(0.3, 0.3)[0], height=(0.3, 0.3)[1],
         ori=0.0, pos=(0, 0), draggable=False, anchor='center',
         lineWidth=1.0,
         colorSpace='rgb', lineColor=[-1.0000, 0.4824, -0.8353], fillColor=[-1.0000, 0.4824, -0.8353],
         opacity=None, depth=0.0, interpolate=True)
     green_square_part2 = visual.Rect(
         win=win, name='green_square_part2',
-        width=(0.4, 0.4)[0], height=(0.4, 0.4)[1],
+        width=(0.28, 0.28)[0], height=(0.28, 0.28)[1],
         ori=0.0, pos=(0, 0), draggable=False, anchor='center',
         lineWidth=1.0,
         colorSpace='rgb', lineColor='white', fillColor='white',
@@ -970,7 +970,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "trial_image" ---
     white_square = visual.Rect(
         win=win, name='white_square',
-        width=(0.4, 0.4)[0], height=(0.4, 0.4)[1],
+        width=(0.28, 0.28)[0], height=(0.28, 0.28)[1],
         ori=0.0, pos=(0, 0), draggable=False, anchor='center',
         lineWidth=1.0,
         colorSpace='rgb', lineColor=None, fillColor='white',
@@ -2524,7 +2524,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update component parameters for each repeat
             image_target.setImage(image_fn[1])
             # Run 'Begin Routine' code from adjust_image_target_size
-            box_size = 0.395
+            box_size = 0.279
             scale_to_size(image_target, box_size)
             
             # create starting attributes for key_resp_catch_delay
@@ -3832,7 +3832,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update component parameters for each repeat
             image_target.setImage(image_fn[1])
             # Run 'Begin Routine' code from adjust_image_target_size
-            box_size = 0.395
+            box_size = 0.279
             scale_to_size(image_target, box_size)
             
             # create starting attributes for key_resp_catch_delay
