@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Mon Jan  6 13:04:06 2025
+    on Wed Jun 25 19:56:30 2025
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -205,7 +205,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version='',
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='/Users/alexhe/Dropbox (Personal)/Active_projects/PsychoPy/exp_bluegrass_memory/bluegrass_memory.py',
+        originPath='/Users/alexhe/Library/CloudStorage/Dropbox/Active_projects/PsychoPy/exp_bluegrass_memory/bluegrass_memory.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -695,7 +695,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     session_int = int(expInfo['session'])
     idx_start = (session_int - 1) * 124 + 1
     idx_end = session_int * 124 + 1
-    image_filenames = rng.permutation(['resource/' + str(x).zfill(3) + '.bmp' for x in range(idx_start, idx_end)])
+    image_filenames = ['resource/' + str(x).zfill(3) + '.bmp' for x in range(idx_start, idx_end)]
     n_objects_per_trial = 2  # each trial alternates between two object images
     n_images_per_trial = 5  # each trial will present 5 test images of the two objects
     n_match_options = [2, 3]  # target image can appear 2 or 3 times per trial
@@ -703,7 +703,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # Practice trials
     n_trials_practice = 2
     n_objects_practice = n_trials_practice * n_objects_per_trial  # 4 objects during practice
-    image_fn_practice = image_filenames[:n_objects_practice]
+    image_fn_practice = rng.permutation(image_filenames[:n_objects_practice])
     image_fn_practice_list = [image_fn_practice[i * n_objects_per_trial:(i + 1) * n_objects_per_trial] for i in range(n_trials_practice)]
     # decide the type of each image in the sequence of each trial
     imageType_practice_list = []
@@ -717,7 +717,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     n_trials_per_block = 30  # a total of 60 trials
     n_trials = n_blocks * n_trials_per_block
     n_objects = n_trials * n_objects_per_trial  # 120 objects during main experiment
-    image_fn = image_filenames[n_objects_practice:n_objects_practice + n_objects]
+    image_fn = rng.permutation(image_filenames[n_objects_practice:n_objects_practice + n_objects])
     image_fn_list = [image_fn[i * n_objects_per_trial:(i + 1) * n_objects_per_trial] for i in range(n_trials)]
     # decide the type of each image in the sequence of each trial
     imageType_list = []

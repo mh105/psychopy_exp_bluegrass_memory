@@ -1,7 +1,8 @@
 # Bluegrass working memory task
-Last edit: 01/06/2025
+Last edit: 06/25/2025
 
 ## Edit history
+- 06/25/2025 by Alex He - updated image stimulus randomization such that the same images are reserved for practice
 - 01/06/2025 by Alex He - reduced the size of all picture stimuli from 0.4 to 0.28
 - 12/11/2024 by Alex He - fixed the window size to be the correct screen resolution
 - 11/22/2024 by Alex He - removed summary csv saving since no trialList used
